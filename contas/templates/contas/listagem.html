@@ -8,21 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Word!</h1>
-
-
-<p>Agora são {{now}}</p>
+    <h2>Listagem de Transações</h2>
     <ul>
-
     {% for transacao in transacoes %}
-        {% if transacao == 't1' %}
-            <li><b>{{transacao}}</b></li>
-        {% else %}
-            <li>{{transacao}}</li>
-        {% endif %}
-    {% endfor %}
+        <li><a href="{% url 'url_update' transacao.id %}">{{ transacao.descricao }} - {{transacao.data}} - {{transacao.valor}}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'url_nova'%}">Novo</a>
 
-    </u>
 </body>
 </html>
-

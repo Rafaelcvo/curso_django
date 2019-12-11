@@ -8,21 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Word!</h1>
-
-
-<p>Agora são {{now}}</p>
-    <ul>
-
-    {% for transacao in transacoes %}
-        {% if transacao == 't1' %}
-            <li><b>{{transacao}}</b></li>
-        {% else %}
-            <li>{{transacao}}</li>
-        {% endif %}
-    {% endfor %}
-
-    </u>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+    {% if transacao %}
+    <a href="{% url 'url_delete' transacao.id %}">Deletar</a>
+    {% endif %}
+</form>
 </body>
 </html>
-
